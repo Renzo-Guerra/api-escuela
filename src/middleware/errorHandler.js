@@ -1,4 +1,4 @@
-const ErrorHandler = () => {
+const errorHandler = (err, req, res, next) => {
   console.log("Error hadler takes action!");
 
   const errStatus = err.errStatus || 500;
@@ -12,4 +12,4 @@ const ErrorHandler = () => {
   });
 }
 
-export default ErrorHandler;
+export default errorHandler;
