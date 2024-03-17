@@ -8,7 +8,12 @@ const obtenerMaterias = async () => {
   return pool.query(`SELECT * FROM materia`);
 }
 
+const eliminarMateria = async (idMateria) => {
+  return pool.query(`DELETE FROM materia WHERE id_materia = $1 RETURNING *`, [idMateria]);
+}
+
 export const materiaService = {
   agregarMateria,
   obtenerMaterias,
+  eliminarMateria,
 }
