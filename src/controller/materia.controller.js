@@ -30,7 +30,41 @@ const eliminarMateria = async (req, res, next) => {
     // Verificando que el id haya eliminado algo
     if (materiaEliminada.rowCount == 0) throw new ApplicationError(404, `No existe materia con el id '${idMateria}'.`);
 
-    res.json(materiaEliminada);
+    res.json(materiaEliminada[0]);
+  } catch (error) {
+    next(error);
+  }
+}
+
+const editarMateria = async (req, res, next) => {
+  try {
+    // Verificando que el argumento pasado no sea null, de paso, en caso de haber pasado una string la pasa a numero
+    const idMateria = Number(req.params.id);
+    // Pasamos a minuscula y quitamos los espacios en blanco del comienzo y fin.
+    const nombreMateria = req.body.nombre.toLowerCase().trim();
+
+    if (nombreMateria.length == 0) throw new ApplicationError(400, "No puede ingresar texto vacio!");
+
+    const materiaEditada = await materiaService.editarMateria(idMateria, nombreMateria);
+
+    if (materiaEditada.rowCount == 0) throw new ApplicationError(404, `No existe materia con el id '${idMateria}'.`);
+
+    res.json(materiaEditada.rows[0]);
+  } catch (error) {
+    next(error);
+  }
+}
+
+const obtenerMateria = async (req, res, next) => {
+  try {
+    // Verificando que el argumento pasado no sea null, de paso, en caso de haber pasado una string la pasa a numero
+    const idMateria = Number(req.params.id);
+    const materia = await materiaService.obtenerMateria(idMateria);
+
+    // Verificando que el id haya eliminado algo
+    if (materia.rowCount == 0) throw new ApplicationError(404, `No existe materia con el id '${idMateria}'.`);
+
+    res.json(materia.rows[0]);
   } catch (error) {
     next(error);
   }
@@ -39,5 +73,7 @@ const eliminarMateria = async (req, res, next) => {
 export const materiaController = {
   agregarMateria,
   obtenerMaterias,
+  obtenerMateria,
   eliminarMateria,
+  editarMateria,
 }
