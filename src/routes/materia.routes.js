@@ -3,8 +3,11 @@ import { materiaController } from "../controller/materia.controller.js";
 
 export const materiaRouter = Router();
 
-materiaRouter.post("/", materiaController.agregarMateria);
-materiaRouter.get("/", materiaController.obtenerMaterias);
-materiaRouter.get("/:id", materiaController.obtenerMateria);
-materiaRouter.delete("/:id", materiaController.eliminarMateria);
-materiaRouter.put("/:id", materiaController.editarMateria);
+materiaRouter.route("/")
+  .post(materiaController.crearMateria)
+  .get(materiaController.obtenerMaterias);
+
+materiaRouter.route("/:id")
+  .get(materiaController.obtenerMateria)
+  .delete(materiaController.eliminarMateria)
+  .put(materiaController.editarMateria);

@@ -1,6 +1,6 @@
 import { pool } from "../database/dbConection.js"
 
-const agregarMateria = async (nombreMateria) => {
+const crearMateria = async (nombreMateria) => {
   return pool.query(`INSERT INTO materia(nombre) VALUES ($1) RETURNING *`, [nombreMateria]);
 }
 
@@ -21,7 +21,7 @@ const obtenerMateria = async (idMateria) => {
 }
 
 export const materiaService = {
-  agregarMateria,
+  crearMateria,
   obtenerMaterias,
   obtenerMateria,
   eliminarMateria,

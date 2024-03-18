@@ -1,12 +1,12 @@
 import { materiaService } from "../service/materia.service.js";
 import { ApplicationError } from "../error/ApplicationError.js";
 
-const agregarMateria = async (req, res, next) => {
+const crearMateria = async (req, res, next) => {
   try {
     const materia = req.body.nombre.toLowerCase().trim();
     if (materia.length == 0) throw new ApplicationError(400, "No puede ingresar texto vacio!");
 
-    const response = await materiaService.agregarMateria(materia);
+    const response = await materiaService.crearMateria(materia);
     res.json(response.rows[0]);
   } catch (error) {
     next(error);
@@ -71,7 +71,7 @@ const obtenerMateria = async (req, res, next) => {
 }
 
 export const materiaController = {
-  agregarMateria,
+  crearMateria,
   obtenerMaterias,
   obtenerMateria,
   eliminarMateria,
