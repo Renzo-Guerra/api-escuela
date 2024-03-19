@@ -1,11 +1,12 @@
 import { Router } from "express";
 
 import { alumnoController } from "../controller/alumno.controller.js";
+import { validacionCrearAlumno } from "../validators/alumno.validators.js";
 
 export const alumnoRouter = Router();
 
 alumnoRouter.route("/")
-  .post(alumnoController.crearAlumno)
+  .post(validacionCrearAlumno, alumnoController.crearAlumno)
   .get(alumnoController.obtenerAlumnos)
 
 alumnoRouter.route("/:dni")

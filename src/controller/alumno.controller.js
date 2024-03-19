@@ -10,8 +10,6 @@ const crearAlumno = async (req, res, next) => {
       idSalon: Number(req.body.idSalon),
     }
 
-    if (alumno.nombre.length == 0 || alumno.apellido.length == 0) throw new ApplicationError(400, "No puede ingresar texto vacio!");
-
     const alumnoCreado = await alumnoService.crearAlumno(alumno.dni, alumno.nombre, alumno.apellido, alumno.idSalon);
     res.json(alumnoCreado.rows[0]);
   } catch (error) {
