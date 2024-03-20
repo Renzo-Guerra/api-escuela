@@ -1,5 +1,6 @@
 import { notaService } from "../service/nota.service.js";
 import { asyncErrorHandler } from "../helpers/asyncErrorHandler.js";
+import { ApplicationError } from "../helpers/ApplicationError.js";
 
 const crearNota = asyncErrorHandler(async (req, res, next) => {
   const nota = {
@@ -25,8 +26,9 @@ const obtenerNota = asyncErrorHandler(async (req, res, next) => {
     anio: Number(req.params.anio),
     trimestre: Number(req.params.trimestre)
   }
-  const salon = await notaService.obtenerNota(pk.idAlumno, pk.idMateria, pk.anio, pk.trimestre);
-  res.json(salon.rows[0]);
+  const nota = await notaService.obtenerNota(pk.idAlumno, pk.idMateria, pk.anio, pk.trimestre);
+  if (nota.rowCount == 0) throw new ApplicationError(404, `No se encontró el id alumno: ${pk.idAlumno}, idMateria: ${pk.idAlumno}, anio: ${pk.anio}, trimestre: ${pk.trimestre} en el server!`);
+  res.json(nota.rows[0]);
 });
 
 const eliminarNota = asyncErrorHandler(async (req, res, next) => {
@@ -37,6 +39,8 @@ const eliminarNota = asyncErrorHandler(async (req, res, next) => {
     trimestre: Number(req.params.trimestre)
   }
   const notaEliminada = await notaService.eliminarNota(pk.idAlumno, pk.idMateria, pk.anio, pk.trimestre);
+  if (notaEliminada.rowCount == 0) throw new ApplicationError(404, `No se encontró el id alumno: ${pk.idAlumno}, idMateria: ${pk.idAlumno}, anio: ${pk.anio}, trimestre: ${pk.trimestre} en el server!`);
+
   res.json(notaEliminada.rows[0]);
 });
 
