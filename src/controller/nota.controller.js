@@ -18,8 +18,19 @@ const obtenerNotas = asyncErrorHandler(async (req, res, next) => {
   const salones = await notaService.obtenerNotas();
   res.json(salones.rows);
 })
+const obtenerNota = asyncErrorHandler(async (req, res, next) => {
+  const pk = {
+    idAlumno: Number(req.params.idAlumno),
+    idMateria: Number(req.params.idMateria),
+    anio: Number(req.params.anio),
+    trimestre: Number(req.params.trimestre)
+  }
+  const salon = await notaService.obtenerNota(pk.idAlumno, pk.idMateria, pk.anio, pk.trimestre);
+  res.json(salon.rows[0]);
+});
 
 export const notaController = {
   crearNota,
   obtenerNotas,
+  obtenerNota,
 }

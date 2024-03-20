@@ -1,5 +1,5 @@
 import { profesorService } from "../service/profesor.service.js";
-import { ApplicationError } from "../error/ApplicationError.js";
+import { ApplicationError } from "../helpers/ApplicationError.js";
 
 const crearProfesor = async (req, res, next) => {
   try {

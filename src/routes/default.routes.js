@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { ApplicationError } from "../error/ApplicationError.js";
+import { ApplicationError } from "../helpers/ApplicationError.js";
 
 export const defaultRouter = Router();
 

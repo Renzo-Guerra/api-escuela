@@ -1,5 +1,5 @@
 import { salonService } from "../service/salon.service.js";
-import { ApplicationError } from "../error/ApplicationError.js";
+import { ApplicationError } from "../helpers/ApplicationError.js";
 
 const crearSalon = async (req, res, next) => {
   try {

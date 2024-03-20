@@ -1,5 +1,5 @@
 import { materiaService } from "../service/materia.service.js";
-import { ApplicationError } from "../error/ApplicationError.js";
+import { ApplicationError } from "../helpers/ApplicationError.js";
 
 const crearMateria = async (req, res, next) => {
   try {

@@ -11,7 +11,13 @@ const obtenerNotas = async () => {
   return pool.query(`SELECT * FROM nota`);
 }
 
+const obtenerNota = async (idAlumno, idMateria, anio, trimestre) => {
+  return pool.query(`SELECT * FROM nota WHERE id_alumno = $1 AND id_materia = $2 AND anio = $3 AND trimestre = $4`,
+    [idAlumno, idMateria, anio, trimestre]);
+}
+
 export const notaService = {
   crearNota,
   obtenerNotas,
+  obtenerNota,
 }
