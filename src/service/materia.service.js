@@ -20,10 +20,15 @@ const obtenerMateria = async (idMateria) => {
   return pool.query(`SELECT * FROM materia WHERE id_materia = $1`, [idMateria]);
 }
 
+const auxExisteId = async (idMateria) => {
+  return pool.query(`SELECT 1 FROM materia WHERE id_materia = $1`, [idMateria]);
+}
+
 export const materiaService = {
   crearMateria,
   obtenerMaterias,
   obtenerMateria,
   eliminarMateria,
   editarMateria,
+  auxExisteId,
 }
