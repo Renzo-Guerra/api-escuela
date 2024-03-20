@@ -4,7 +4,6 @@ import { ApplicationError } from "../error/ApplicationError.js";
 const crearSalon = async (req, res, next) => {
   try {
     const nombreSalon = req.body.nombre.toLowerCase().trim();
-    if (nombreSalon.length == 0) throw new ApplicationError(400, "No puede ingresar texto vacio!");
 
     const salonCreado = await salonService.crearSalon(nombreSalon);
     res.json(salonCreado.rows[0]);

@@ -9,8 +9,6 @@ const crearProfesor = async (req, res, next) => {
       apellido: req.body.apellido.toLowerCase().trim(),
     }
 
-    if (profesor.nombre.length == 0 || profesor.apellido.length == 0) throw new ApplicationError(400, "No puede ingresar texto vacio!");
-
     const profesorCreado = await profesorService.crearProfesor(profesor.dni, profesor.nombre, profesor.apellido);
     res.json(profesorCreado.rows[0]);
   } catch (error) {

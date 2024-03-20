@@ -4,7 +4,6 @@ import { ApplicationError } from "../error/ApplicationError.js";
 const crearMateria = async (req, res, next) => {
   try {
     const materia = req.body.nombre.toLowerCase().trim();
-    if (materia.length == 0) throw new ApplicationError(400, "No puede ingresar texto vacio!");
 
     const response = await materiaService.crearMateria(materia);
     res.json(response.rows[0]);
