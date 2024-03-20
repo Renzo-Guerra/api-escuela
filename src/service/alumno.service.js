@@ -21,10 +21,15 @@ const editarAlumno = async (viejoDniAlumno, nuevoDniAlumno, nombre, apellido, id
     [viejoDniAlumno, nuevoDniAlumno, nombre, apellido, idSalon]);
 }
 
+const auxExisteId = async (idAlumno) => {
+  return pool.query(`SELECT 1 FROM alumno WHERE dni_alumno = $1`, [idAlumno]);
+}
+
 export const alumnoService = {
   crearAlumno,
   obtenerAlumnos,
   obtenerAlumno,
   eliminarAlumno,
   editarAlumno,
+  auxExisteId,
 }
