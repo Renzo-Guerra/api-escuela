@@ -29,8 +29,20 @@ const obtenerNota = asyncErrorHandler(async (req, res, next) => {
   res.json(salon.rows[0]);
 });
 
+const eliminarNota = asyncErrorHandler(async (req, res, next) => {
+  const pk = {
+    idAlumno: Number(req.params.idAlumno),
+    idMateria: Number(req.params.idMateria),
+    anio: Number(req.params.anio),
+    trimestre: Number(req.params.trimestre)
+  }
+  const notaEliminada = await notaService.eliminarNota(pk.idAlumno, pk.idMateria, pk.anio, pk.trimestre);
+  res.json(notaEliminada.rows[0]);
+});
+
 export const notaController = {
   crearNota,
   obtenerNotas,
   obtenerNota,
+  eliminarNota,
 }
