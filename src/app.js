@@ -6,6 +6,7 @@ import { materiaRouter } from "./routes/materia.routes.js";
 import { salonRouter } from "./routes/salon.routes.js";
 import { alumnoRouter } from "./routes/alumno.routes.js";
 import { profesorRouter } from "./routes/profesor.routes.js";
+import { defaultRouter } from "./routes/default.routes.js";
 
 dotenv.config();
 
@@ -20,7 +21,7 @@ app.use("/api/v1/materia", materiaRouter);
 app.use("/api/v1/salon", salonRouter);
 app.use("/api/v1/alumno", alumnoRouter);
 app.use("/api/v1/profesor", profesorRouter);
-
+app.all('*', defaultRouter);
 app.use(errorHandler);
 
 app.listen(applicationPort, () => {
