@@ -1,9 +1,9 @@
-import { materiaService } from '../service/materia.service.js';
+import { salonService } from '../service/salon.service.js';
 import { ApplicationError } from '../helpers/ApplicationError.js'
 
-export const checkIdMateriaExiste = async (req, res, next) => {
+export const checkIdSalonExiste = async (req, res, next) => {
   try {
-    const res = await materiaService.auxExisteId(req.params.id);
+    const res = await salonService.auxExisteId(req.params.id);
 
     if (res.rowCount == 1) return next();
 

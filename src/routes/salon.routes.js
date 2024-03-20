@@ -1,8 +1,11 @@
 import { Router } from "express";
 import { salonController } from "../controller/salon.controller.js";
 import { validacionCrearSalon } from "../validators/salon.validators.js";
+import { checkIdSalonExiste } from "../middleware/checkIdSalonExiste.js";
 
 export const salonRouter = Router();
+
+salonRouter.param('id', checkIdSalonExiste);
 
 salonRouter.route("/")
   .post(validacionCrearSalon, salonController.crearSalon)
