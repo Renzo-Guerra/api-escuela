@@ -12,4 +12,4 @@ profesorRouter.route("/")
 profesorRouter.route("/:dni")
   .get(profesorController.obtenerProfesor)
   .delete(profesorController.eliminarProfesor)
-  .put(profesorController.editarProfesor);
+  .put(validacionCrearProfesor, profesorController.editarProfesor);

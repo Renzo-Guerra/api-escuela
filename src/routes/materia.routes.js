@@ -11,4 +11,4 @@ materiaRouter.route("/")
 materiaRouter.route("/:id")
   .get(materiaController.obtenerMateria)
   .delete(materiaController.eliminarMateria)
-  .put(materiaController.editarMateria);
+  .put(validacionCrearMateria, materiaController.editarMateria);
