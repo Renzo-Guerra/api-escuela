@@ -13,35 +13,44 @@ const crearNota = asyncErrorHandler(async (req, res, next) => {
 
   const notaCreada = await notaService.crearNota(nota.idAlumno, nota.idMateria, nota.anio, nota.trimestre, nota.nota);
   res.json(notaCreada.rows[0]);
-})
+});
 
 const obtenerNotas = asyncErrorHandler(async (req, res, next) => {
   const salones = await notaService.obtenerNotas();
   res.json(salones.rows);
-})
+});
+
 const obtenerNota = asyncErrorHandler(async (req, res, next) => {
   const pk = {
-    idAlumno: Number(req.params.idAlumno),
+    idAlumno: Number(req.params.dniAlumno),
     idMateria: Number(req.params.idMateria),
     anio: Number(req.params.anio),
     trimestre: Number(req.params.trimestre)
   }
   const nota = await notaService.obtenerNota(pk.idAlumno, pk.idMateria, pk.anio, pk.trimestre);
-  if (nota.rowCount == 0) throw new ApplicationError(404, `No se encontró el id alumno: ${pk.idAlumno}, idMateria: ${pk.idAlumno}, anio: ${pk.anio}, trimestre: ${pk.trimestre} en el server!`);
   res.json(nota.rows[0]);
 });
 
 const eliminarNota = asyncErrorHandler(async (req, res, next) => {
   const pk = {
-    idAlumno: Number(req.params.idAlumno),
+    idAlumno: Number(req.params.dniAlumno),
     idMateria: Number(req.params.idMateria),
     anio: Number(req.params.anio),
     trimestre: Number(req.params.trimestre)
   }
   const notaEliminada = await notaService.eliminarNota(pk.idAlumno, pk.idMateria, pk.anio, pk.trimestre);
-  if (notaEliminada.rowCount == 0) throw new ApplicationError(404, `No se encontró el id alumno: ${pk.idAlumno}, idMateria: ${pk.idAlumno}, anio: ${pk.anio}, trimestre: ${pk.trimestre} en el server!`);
-
   res.json(notaEliminada.rows[0]);
+});
+
+const editarNota = asyncErrorHandler(async (req, res, next) => {
+  const nuevosDatos = {
+    idAlumno: Number(req.params.dniAlumno),
+    idMateria: Number(req.params.idMateria),
+    anio: Number(req.params.anio),
+    trimestre: Number(req.params.trimestre)
+  }
+  const notaEditada = await notaService.editarNota(req.params.dniAlumno, nuevosDatos.idAlumno, nuevosDatos.idMateria, nuevosDatos.anio, nuevosDatos.trimestre);
+  res.json(notaEditada.rows[0]);
 });
 
 export const notaController = {
@@ -49,4 +58,5 @@ export const notaController = {
   obtenerNotas,
   obtenerNota,
   eliminarNota,
+  editarNota,
 }
