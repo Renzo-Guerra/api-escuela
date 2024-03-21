@@ -24,10 +24,21 @@ const editarProfesor = async (viejoDniProfesor, nuevoDniProfesor, nombre, apelli
     [viejoDniProfesor, nuevoDniProfesor, nombre, apellido]);
 }
 
+const auxExisteId = async (idProfesor) => {
+  return pool.query(`SELECT 1 FROM profesor WHERE dni_profesor = $1`,
+    [idProfesor]);
+}
+
+const asignarCursoAProfesor = async (dniProfesor, idMateria, idSalon) => {
+  return pool.query(`INSERT INTO profesor_salon_materia VALUES ($1, $2, $3) RETURNING *`, [dniProfesor, idMateria, idSalon]);
+}
+
 export const profesorService = {
   crearProfesor,
   obtenerProfesores,
   obtenerProfesor,
   eliminarProfesor,
   editarProfesor,
+  auxExisteId,
+  asignarCursoAProfesor,
 }

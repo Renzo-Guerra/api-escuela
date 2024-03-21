@@ -17,3 +17,18 @@ export const validacionCrearProfesor = [
     validarResultado(req, res, next);
   }
 ];
+
+export const validacionProfesorSalon = [
+  check("dni")
+    .exists()
+    .isNumeric(),
+  check("idMateria")
+    .exists()
+    .isNumeric(),
+  check("idSalon")
+    .exists()
+    .isNumeric(),
+  (req, res, next) => {
+    validarResultado(req, res, next);
+  }
+]

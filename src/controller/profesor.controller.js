@@ -42,10 +42,22 @@ const editarProfesor = asyncErrorHandler(async (req, res, next) => {
   res.json(profesorEditado.rows[0]);
 });
 
+const asignarCursoAProfesor = asyncErrorHandler(async (req, res, next) => {
+  const datos = {
+    dniProfesor: Number(req.params.dni),
+    idMateria: Number(req.body.idMateria),
+    idSalon: Number(req.body.idSalon)
+  }
+
+  const cursoProfesor = await profesorService.asignarCursoAProfesor(datos.dniProfesor, datos.idMateria, datos.idSalon);
+  res.json(cursoProfesor.rows[0]);
+});
+
 export const profesorController = {
   crearProfesor,
   obtenerProfesores,
   obtenerProfesor,
   eliminarProfesor,
   editarProfesor,
+  asignarCursoAProfesor,
 }

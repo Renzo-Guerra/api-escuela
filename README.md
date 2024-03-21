@@ -110,3 +110,11 @@ Permite gestionar un CRUD sobre los datos ingresados.
       "apellido": "Ortega"
     } 
   ```
+- POST http://localhost:7000/api/v1/profesor/:dniProfesor/curso
+  ```json
+    {
+      "idMateria": 1,
+      "idSalon": 1
+    } 
+  ```
+  
