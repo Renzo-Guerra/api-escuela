@@ -8,7 +8,7 @@ notaRouter.route('/')
   .get(notaController.obtenerNotas)
   .post(validacionCrearNota, notaController.crearNota);
 
-notaRouter.route('/dniAlumno/:idAlumno/idMateria/:idMateria/anio/:anio/trimestre/:trimestre')
+notaRouter.route('/dniAlumno/:dniAlumno/idMateria/:idMateria/anio/:anio/trimestre/:trimestre')
   .get(notaController.obtenerNota)
   .delete(notaController.eliminarNota)
   .put(notaController.editarNota)

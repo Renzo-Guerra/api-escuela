@@ -21,9 +21,12 @@ const eliminarNota = async (idAlumno, idMateria, anio, trimestre) => {
     [idAlumno, idMateria, anio, trimestre]);
 }
 
-const editarNota = async (idAlumnoActual, idAlumno, idMateria, anio, trimestre) => {
-  return pool.query(`UPDATE nota SET id_alumno = $2 id_materia = $3 anio = $4 trimestre = $5 WHERE id_alumno = $1 RETURNING *`),
-    [idAlumnoActual, idAlumno, idMateria, anio, trimestre];
+const editarNota = async (dniAlumnoActual, idMateriaActual, anioActual, trimestreActual, idAlumnoNuevo, idMateriaNuevo, anioNuevo, trimestreNuevo, nota) => {
+  return await pool.query(`
+    UPDATE nota
+    SET id_alumno = $5, id_materia = $6, anio = $7, trimestre = $8, nota = $9 
+    WHERE id_alumno = $1 AND id_materia = $2 AND anio = $3 AND trimestre = $4 RETURNING *`,
+    [dniAlumnoActual, idMateriaActual, anioActual, trimestreActual, idAlumnoNuevo, idMateriaNuevo, anioNuevo, trimestreNuevo, nota]);
 }
 
 export const notaService = {

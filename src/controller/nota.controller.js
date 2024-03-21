@@ -43,13 +43,21 @@ const eliminarNota = asyncErrorHandler(async (req, res, next) => {
 });
 
 const editarNota = asyncErrorHandler(async (req, res, next) => {
-  const nuevosDatos = {
+  const datosViejos = {
     idAlumno: Number(req.params.dniAlumno),
     idMateria: Number(req.params.idMateria),
     anio: Number(req.params.anio),
     trimestre: Number(req.params.trimestre)
   }
-  const notaEditada = await notaService.editarNota(req.params.dniAlumno, nuevosDatos.idAlumno, nuevosDatos.idMateria, nuevosDatos.anio, nuevosDatos.trimestre);
+  const nuevosDatos = {
+    idAlumno: Number(req.body.dniAlumno),
+    idMateria: Number(req.body.idMateria),
+    anio: Number(req.body.anio),
+    trimestre: Number(req.body.trimestre),
+    nota: Number(req.body.nota)
+  }
+  const notaEditada = await notaService.editarNota(datosViejos.idAlumno, datosViejos.idMateria, datosViejos.anio, datosViejos.trimestre, nuevosDatos.idAlumno, nuevosDatos.idMateria, nuevosDatos.anio, nuevosDatos.trimestre, nuevosDatos.nota);
+  if (notaEditada.rowCount == 0) throw new ApplicationError(400, `No se encontró el recurso dni: ${datosViejos.idAlumno}, materia: ${datosViejos.idMateria}, anio: ${datosViejos.trimestre} y anio: ${datosViejos.anio} en el server!`);
   res.json(notaEditada.rows[0]);
 });
 
