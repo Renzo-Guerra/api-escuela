@@ -33,6 +33,10 @@ const asignarCursoAProfesor = async (dniProfesor, idMateria, idSalon) => {
   return pool.query(`INSERT INTO profesor_salon_materia VALUES ($1, $2, $3) RETURNING *`, [dniProfesor, idMateria, idSalon]);
 }
 
+const eliminarCursoAProfesor = async (dniProfesor, idMateria, idSalon) => {
+  return pool.query(`DELETE FROM profesor_salon_materia WHERE dni_profesor = $1 AND id_materia = $2 AND id_salon = $3 RETURNING *`, [dniProfesor, idMateria, idSalon]);
+}
+
 export const profesorService = {
   crearProfesor,
   obtenerProfesores,
@@ -41,4 +45,5 @@ export const profesorService = {
   editarProfesor,
   auxExisteId,
   asignarCursoAProfesor,
+  eliminarCursoAProfesor,
 }

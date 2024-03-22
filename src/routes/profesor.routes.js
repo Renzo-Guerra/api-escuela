@@ -18,4 +18,5 @@ profesorRouter.route("/:dni")
   .delete(profesorController.eliminarProfesor)
   .put(validacionCrearProfesor, profesorController.editarProfesor);
 
-profesorRouter.post("/:dni/curso", validacionProfesorSalon, profesorController.asignarCursoAProfesor);
+profesorRouter.post("/:dni/salon", validacionProfesorSalon, profesorController.asignarCursoAProfesor);
+profesorRouter.delete("/:dni/salon/:idSalon/materia/:idMateria", validacionProfesorSalon, profesorController.eliminarCursoAProfesor);
