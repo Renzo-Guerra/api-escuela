@@ -20,10 +20,24 @@ const editarSalon = async (id, nombre) => {
   return pool.query(`UPDATE salon SET nombre = $1 WHERE id_salon = $2 RETURNING *`, [nombre, id]);
 }
 
+const auxExisteId = async (idSalon) => {
+  return pool.query(`SELECT 1 FROM salon WHERE id_salon = $1`, [idSalon]);
+}
+
+const obtenerAlumnosDelSalon = async (idSalon) => {
+  return pool.query(`
+    SELECT a.dni_alumno, a.nombre, a.apellido
+    FROM alumno a
+    WHERE a.id_salon = $1
+  `, [idSalon]);
+}
+
 export const salonService = {
   crearSalon,
   obtenerSalones,
   obtenerSalon,
   eliminarSalon,
   editarSalon,
+  auxExisteId,
+  obtenerAlumnosDelSalon,
 }

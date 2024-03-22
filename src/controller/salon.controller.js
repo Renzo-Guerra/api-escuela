@@ -31,10 +31,18 @@ const editarSalon = asyncErrorHandler(async (req, res, next) => {
   res.json(salonEditado.rows[0]);
 })
 
+const obtenerAlumnosDelSalon = asyncErrorHandler(async (req, res, next) => {
+  const idSalon = Number(req.params.id);
+
+  const alumnos = await salonService.obtenerAlumnosDelSalon(idSalon);
+  res.json(alumnos.rows);
+});
+
 export const salonController = {
   crearSalon,
   obtenerSalones,
   obtenerSalon,
   eliminarSalon,
   editarSalon,
+  obtenerAlumnosDelSalon,
 }

@@ -15,3 +15,5 @@ salonRouter.route("/:id")
   .get(salonController.obtenerSalon)
   .delete(salonController.eliminarSalon)
   .put(validacionCrearSalon, salonController.editarSalon);
+
+salonRouter.get("/:id/alumno", salonController.obtenerAlumnosDelSalon);

@@ -44,6 +44,7 @@ Permite gestionar un CRUD sobre los datos ingresados.
       "nombre": "rojo" 
     } 
   ```
+- GET http://localhost:7000/api/v1/salon/:idSalon/alumno
 ### ALUMNO
 - POST http://localhost:7000/api/v1/alumno
   ```json
@@ -110,11 +111,12 @@ Permite gestionar un CRUD sobre los datos ingresados.
       "apellido": "Ortega"
     } 
   ```
-- POST http://localhost:7000/api/v1/profesor/:dniProfesor/curso
+- POST http://localhost:7000/api/v1/profesor/:dniProfesor/salon
   ```json
     {
       "idMateria": 1,
       "idSalon": 1
     } 
   ```
+- DELETE http://localhost:7000/api/v1/profesor/:dniProfesor/salon/:idSalon/materia/:idMateria
   
