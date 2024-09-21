@@ -1,0 +1,745 @@
+{
+	"info": {
+		"_postman_id": "e8c08500-811b-4e96-99b2-f63431383f0a",
+		"name": "APIEscuela",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24263678"
+	},
+	"item": [
+		{
+			"name": "materia",
+			"item": [
+				{
+					"name": "Crear materia",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"geografia\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/materia",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"materia"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener materias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/materia",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"materia"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar materia",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/materia/13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"materia",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar materia",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"matematica\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/materia/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"materia",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener materia por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/materia/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"materia",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "salon",
+			"item": [
+				{
+					"name": "Obtener salon por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/salon/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"salon",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener alumnos de un salon \"x\"",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/salon/2/alumno",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"salon",
+								"2",
+								"alumno"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener salones",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/salon",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"salon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear salon",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"rojo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/salon",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"salon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar salon",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"grupo rojo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/salon/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"salon",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "alumno",
+			"item": [
+				{
+					"name": "Obtener alumno por dni",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/alumno/44500600",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"alumno",
+								"44500600"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener alumnos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/alumno",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"alumno"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear alumno",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dni\": 42888999,\r\n    \"nombre\": \"Maximiliano\",\r\n    \"apellido\": \"Alvarez\",\r\n    \"idSalon\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/alumno",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"alumno"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar alumno",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dni\": 44500600,\r\n    \"nombre\": \"Julian\",\r\n    \"apellido\": \"Ortega\",\r\n    \"idSalon\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/alumno/4450060",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"alumno",
+								"4450060"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar alumno",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/alumno/40111222",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"alumno",
+								"40111222"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "profesor",
+			"item": [
+				{
+					"name": "Obtener profesor por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/profesor/20111222",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"profesor",
+								"20111222"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener profesores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/profesor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"profesor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear profesor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dni\": 24888999,\r\n    \"nombre\": \"Maria\",\r\n    \"apellido\": \"Petrida\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/profesor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"profesor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Asignar profesor a un salon",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idMateria\": 1,\r\n    \"idSalon\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/profesor/20111222/salon",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"profesor",
+								"20111222",
+								"salon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar profesor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dni\": 20111222,\r\n    \"nombre\": \"Julian\",\r\n    \"apellido\": \"Ortega\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/profesor/20111222",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"profesor",
+								"20111222"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar profesor por dni",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/alumno/20111222",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"alumno",
+								"20111222"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar profesor de \"x\" materia en \"y\" salon",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/profesor/20111222/salon/1/materia/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"profesor",
+								"20111222",
+								"salon",
+								"1",
+								"materia",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "nota",
+			"item": [
+				{
+					"name": "Editar nota",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"dniAlumno\": 12,\r\n\t\"idMateria\": 1,\r\n    \"anio\": 2024,\r\n    \"trimestre\": 1,\r\n\t\"nota\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/nota/dniAlumno/44500600/idMateria/113/anio/2024/trimestre/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"nota",
+								"dniAlumno",
+								"44500600",
+								"idMateria",
+								"113",
+								"anio",
+								"2024",
+								"trimestre",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener notas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/nota",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"nota"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener nota por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/nota/dniAlumno/44500600/idMateria/2/anio/2024/trimestre/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"nota",
+								"dniAlumno",
+								"44500600",
+								"idMateria",
+								"2",
+								"anio",
+								"2024",
+								"trimestre",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear nota",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"dniAlumno\": 44500600,\r\n\t\"idMateria\": 1,\r\n    \"anio\": 2024,\r\n    \"trimestre\": 2,\r\n\t\"nota\": 7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1/nota",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"nota"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar nota",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1/nota/dniAlumno/44500600/idMateria/1/anio/2024/trimestre/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1",
+								"nota",
+								"dniAlumno",
+								"44500600",
+								"idMateria",
+								"1",
+								"anio",
+								"2024",
+								"trimestre",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
