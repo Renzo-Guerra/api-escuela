@@ -6,6 +6,8 @@ Permite gestionar un CRUD sobre los datos ingresados.
 
 ![DER del sistema](./assets/DER_sistema_escuela.jpg)
 
+IMPORTANTE: Todos estos endpoints estan en el archivo "APIEscuela.postman_collection.json" el cual puede ser abierto desde postman para utilizar la API
+
 ## ENDPOINTS
 - [MATERIA](#materia)
 - [SALON](#salon)
